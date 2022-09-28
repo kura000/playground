@@ -1,0 +1,115 @@
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>vue playground</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body id="app">
+	<header>
+		<h1>TO-DO header</h1>
+		<div class="clearAll">
+			<button @click="onClickClearAll" class="c-button">
+				全てのデータを削除する
+			</button>
+		</div>
+	</header>
+
+	<main class="main">
+		<div class="contents">
+			<div class="contents_head">
+				<div class="inner">
+					<section class="filter">
+						<select
+							v-model="selectedFilter"
+						>
+							<option value="incomplete">未完了</option>
+							<option value="notStarted">未着手</option>
+							<option value="progress">着手中</option>
+							<option value="complete">完了</option>
+							<option value="all">全て</option>
+						</select>
+					</section>
+					<section class="sort">
+						<select
+							v-model="sortBy"
+						>
+							<option value="byDate">日付</option>
+							<option value="byProgress">進捗</option>
+						</select>
+						<button
+							@click="onClickToggleSortOrder"
+						>
+							toggle 昇順/降順{{sortOrder}}
+						</button>
+					</section>
+				</div>
+			</div>
+			<section class="taskList">
+				<div class="inner">
+					<table>
+						<thead>
+							<th class="taskList_status">未着手</th>
+							<th class="taskList_status">作業中</th>
+							<th class="taskList_status">完了</th>
+							<th>タスク名</th>
+							<th>登録日</th>
+							<th></th>
+						</thead>
+						<tbody>
+							<tr
+								v-for="item in displayTaskList"
+								:key="item.id"
+							>
+								<td
+									v-for="status in statusList"
+									:key="status.id"
+								>
+									<input
+										type="radio"
+										:name="`status_${item.id}`"
+										:value="status.id"
+										v-model="item.status"
+									/>
+								</td>
+								<td>
+									<span :class="{ complete: item.complete }">
+										{{ item.name }}
+									</span>
+								</td>
+								<td>登録日を出力</td>
+								<td>
+									<button @click="onClickDeleteTaskBtn(item.id)" class="c-button">削除する</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<section class="addTask">
+				<div class="inner">
+					<input
+						type="text"
+						placeholder="新しいタスクを追加"
+						v-model="newTask"
+						@keyup.enter="onClickAddTaskBtn"
+					>
+					<button
+						class="c-button"
+						@click="onClickAddTaskBtn"
+						:disabled="isDisabledSubmitBtn">
+						追加する
+					</button>
+				</div>
+			</section>
+		</div>
+		<div class="sidebar">
+			<h1>sidebar</h1>
+		</div>
+	</main>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="app.js"></script>
+</body>
+</html>

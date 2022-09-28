@@ -1,0 +1,171 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #F2F2F2;
+  color: #333;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.8;
+}
+
+.c-button {
+  border-radius: 1rem;
+  padding: 1.2rem 2rem 1rem;
+  -webkit-transition: 0.3s background-color;
+  transition: 0.3s background-color;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 6rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #005691;
+  color: #F2F2F2;
+  padding: 0 2rem;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contents {
+  background-color: whitesmoke;
+  width: calc(100% - 30rem);
+  height: calc(100vh - 6rem);
+  position: relative;
+}
+
+.sidebar {
+  background-color: gray;
+  width: 30rem;
+}
+
+.inner {
+  max-width: 64rem;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.contents_head {
+  background-color: #7ba589;
+  padding: 2rem 0;
+}
+
+.contents_head .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filter, .sort {
+  border-bottom: 1px solid #608d6f;
+  position: relative;
+}
+
+.filter::before, .sort::before {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #608d6f;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.filter select, .sort select {
+  width: 100px;
+  padding-left: 3rem;
+}
+
+.addTask {
+  width: 100%;
+  background-color: #7ba589;
+  padding: 2rem 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.addTask .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.addTask input {
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: 1rem 2rem;
+}
+
+.addTask button {
+  background-color: #8989c2;
+  color: white;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-left: 1rem;
+  text-align: center;
+}
+
+.clearAll button {
+  background-color: red;
+}
+
+.taskList table thead th {
+  padding: 1rem 0;
+}
+
+.taskList table tr {
+  border-bottom: 1px solid #005691;
+  padding: 1rem 0;
+}
+
+.taskList table th.taskList_status {
+  width: 7rem;
+  text-align: center;
+}
+
+.taskList table td {
+  vertical-align: baseline;
+}
+
+.taskList .c-button {
+  background-color: gray;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */
